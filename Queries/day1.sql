@@ -75,6 +75,30 @@ FROM EMPLOYEES
 WHERE FIRST_NAME = 'David' and  SALARY = 4800;
 
 
+SElect FIRST_NAME, LAST_NAME, SALARY
+FROM EMPLOYEES
+WHERE FIRST_NAME = 'David' OR  SALARY = 4800;
+
+
+--Display the employees that make more than 5000 and less than 12000
+SELECT * FROM EMPLOYEES
+where SALARY>=5000 and SALARY<=12000;
+
+--Display the employees that have JOB_ID of
+--Ad_VP
+--AD_ASST
+--FI_ACCOUNT
+--AC_ACCOUNT
+
+SELECT * FROM EMPLOYEES
+WHERE JOB_ID ='AD_VP'
+OR JOB_ID ='AD_ASST'
+   OR JOB_ID ='FI_ACCOUNT'
+   OR JOB_ID ='AC_ACCOUNT'
+
+
+
+
 
 
 
