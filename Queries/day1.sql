@@ -37,3 +37,45 @@ FROM EMPLOYEES;
  HR Database
  */
 
+ /*
+  Getting Unique value from the result
+  for example, only get unique first name employees table
+  */
+
+SELECT DISTINCT FIRST_NAME
+FROM EMPLOYEES;
+
+
+SELECT DISTINCT LAST_NAME
+FROM EMPLOYEES;
+
+SELECT DISTINCT FIRST_NAME, LAST_NAME
+FROM EMPLOYEES;
+
+
+--Restricting rows in the result using WHERE clause
+
+--Operator = , > >=, <, <=, !=, <>
+--Logical Operators: AND OR
+
+--Display the Employee information for the employee with first_name Ellen
+-- In SQL We use single quote for String.
+
+SELECT * FROM EMPLOYEES
+WHERE FIRST_NAME = 'Ellen' ;
+
+--Display the Employee First_Name, LAST_NAME, SALARY
+-- for the employee with SALARY 11000
+
+SELECT FIRST_NAME, LAST_NAME, SALARY FROM EMPLOYEES
+WHERE SALARY='11000';
+
+SElect FIRST_NAME, LAST_NAME, SALARY
+FROM EMPLOYEES
+WHERE FIRST_NAME = 'David' and  SALARY = 4800;
+
+
+
+
+
+
