@@ -84,17 +84,103 @@ WHERE FIRST_NAME = 'David' OR  SALARY = 4800;
 SELECT * FROM EMPLOYEES
 where SALARY>=5000 and SALARY<=12000;
 
+--Range checking is mich simpler in SQL using
+--Between ....And
+--Is same as Column_Value>= lower bound and Column_value <= UpperLimit
+--Above query can be much simpler and more readable as below
+
+SELECT * FROM EMPLOYEES
+    WHERE SALARY between 5000 and 1200;
+
 --Display the employees that have JOB_ID of
 --Ad_VP
 --AD_ASST
 --FI_ACCOUNT
 --AC_ACCOUNT
 
-SELECT * FROM EMPLOYEES
+SELECT FIRST_NAME, JOB_ID FROM EMPLOYEES
 WHERE JOB_ID ='AD_VP'
 OR JOB_ID ='AD_ASST'
    OR JOB_ID ='FI_ACCOUNT'
-   OR JOB_ID ='AC_ACCOUNT'
+   OR JOB_ID ='AC_ACCOUNT';
+
+
+--Using keyword IN for multiple possible value of same column in condition
+
+SELECT FIRST_NAME, JOB_ID from EMPLOYEES
+WHERE JOB_ID IN ('AD_VP', 'AD_ASST', 'FI_ACCOUNT', 'AC_ACCOUNT'  );
+
+--How to say NOT in SQL
+-- for equality check != <> ,
+--FIND out all regions expect the region with region_id of 1
+SELECT * FROM REGIONS
+where REGION_ID !=1;
+
+SELECT * FROM REGIONS
+WHERE REGION_NAME != 'Americas';
+--For BETWEEN AND --> NOT BETWEEN.. AND
+--Display the employees that does not make
+-- more than 5000 and less than 12000
+SELECT FIRST_NAME, SALARY from EMPLOYEES
+WHERE SALARY not between 5000 AND 12000;
+
+--for IN ---> NOT IN
+--Display the employees that have JOB_ID is not one of these
+--Ad_VP
+--AD_ASST
+--FI_ACCOUNT
+--AC_ACCOUNT
+SELECT FIRST_NAME, LAST_NAME, JOB_ID from EMPLOYEES
+WHERE JOB_ID not in ('AD_VP', 'AD_ASST', 'FI_ACCOUNT', 'AC_ACCOUNT');
+
+--How to use null in condition?
+--For Example: Find out all departments with null manager_id
+
+SELECT  * FROM DEPARTMENTS
+WHERE MANAGER_ID is null;
+
+--For example: find out all departments that does not have Manager ID
+
+SELECT * FROM DEPARTMENTS
+where MANAGER_ID is not null ;
+
+--SORTING the result in ascending (Low to High)
+--Or Descending order(High to Low)
+--Order by Clause can be used to order the result of your query
+--Is use either column name or column index
+--It must be the last part of the statement
+--ASC for (LOW to HIGH), DESC (high to Low)
+
+--Display Employee FIRSt_NAME and LAST_NAME and Salary
+--try to sort by below criteria separately
+--FIRST_NAME ASC
+-- SALARY DESC
+--Last_Name DESC
+
+SELECT FIRST_NAME, LAST_NAME, SALARY
+FROM EMPLOYEES
+--ORDER BY  FIRST_NAME asc ;
+--order by SALARY desc;
+order by 1 DESC ; -- this means sort the result by first column
+--SQL index start with 1 not 0 !!!!!!!!!
+
+SELECT FIRST_NAME
+FROM EMPLOYEES
+WHERE FIRST_NAME like 'A%';
+
+--Display all the first_name that end with Letter a in EMPLOYEES TABLES
+SELECT  FIRST_NAME
+from EMPLOYEES
+WHERE FIRST_NAME like '%a';
+
+SELECT FIRST_NAME
+from EMPLOYEES
+WHERE FIRST_NAME like '%a%';
+
+
+
+
+
 
 
 
